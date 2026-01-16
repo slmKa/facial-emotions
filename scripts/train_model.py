@@ -1,7 +1,4 @@
-"""
-Script d'entraînement du modèle de détection d'émotions faciales
-Dataset: FER2013 (à télécharger depuis Kaggle)
-"""
+
 
 import pandas as pd
 import numpy as np

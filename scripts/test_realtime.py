@@ -1,7 +1,3 @@
-"""
-Script de test de détection d'émotions en temps réel
-Appuie sur 'q' pour quitter
-"""
 
 import cv2
 import sys

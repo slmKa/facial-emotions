@@ -1,7 +1,4 @@
-"""
-Application complète de chatbot émotionnel avec Streamlit
-Lance avec: streamlit run scripts/3_streamlit_app.py
-"""
+
 
 import streamlit as st
 import cv2
@@ -152,7 +149,6 @@ button[data-baseweb="tab"] {
 }
 </style>
 """, unsafe_allow_html=True)
-
 
 # ============================================================
 # INITIALISATION SESSION STATE
@@ -417,12 +413,13 @@ with tab1:
             )
         
         # Générer réponse du bot
-        include_tip = len(st.session_state.chat_history) % 3 == 0  # Un conseil tous les 3 échanges
-        
+        include_tip = len(st.session_state.chat_history) % 3 == 0
+
         bot_response = st.session_state.response_gen.generate_response(
             st.session_state.current_mood,
             st.session_state.current_emotion['emotion'] if st.session_state.current_emotion else None,
-            include_tip=include_tip
+            include_tip=include_tip,
+            context=user_input  # ✅ CORRIGÉ : context au lieu de user_message
         )
         
         st.session_state.chat_history.append({
@@ -612,8 +609,8 @@ with tab3:
 st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: gray;'>"
-    "Projet ML - Chatbot Émotionnel "
-   
+    "Projet ML - Chatbot Émotionnel"
     "</div>",
     unsafe_allow_html=True
 )
+
